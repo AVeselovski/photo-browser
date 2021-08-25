@@ -2,11 +2,11 @@
   "name": "photo-browser",
   "version": "1.0.0",
   "description": "PhotoBrowser app using jsonplaceholder.typicode.com api",
-  "main": "index.js",
   "author": "Artur Veselovski",
   "license": "MIT",
   "scripts": {
-    "start": "webpack-dev-server --mode development --port 3000"
+    "start": "webpack-dev-server --mode development --port 3000",
+    "build": "webpack --mode production"
   },
   "dependencies": {
     "@babel/core": "^7.15.0",
