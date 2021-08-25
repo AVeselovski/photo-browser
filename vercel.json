@@ -1,0 +1,10 @@
+{
+  "routes": [
+    { "src": "/photos", "dest": "/index.html" },
+    { "src": "/photos/:id", "dest": "/index.html" },
+    { "src": "/albums", "dest": "/index.html" },
+    { "src": "/albums/:id", "dest": "/index.html" },
+    { "src": "/users", "dest": "/index.html" },
+    { "src": "/users/:id", "dest": "/index.html" }
+  ]
+}

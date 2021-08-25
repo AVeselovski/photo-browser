@@ -1,6 +1,6 @@
 # PhotoBrowser
 
-Live demo: example.com
+Live demo: [photo-browser](https://photo-browser-app.vercel.app)
 
 ## Running locally
 
