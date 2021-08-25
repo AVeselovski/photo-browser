@@ -1,0 +1,73 @@
+.mobile-nav {
+  background-color: $bg;
+  bottom: 0;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+  position: fixed;
+  right: 0;
+  top: 0;
+  transform: translateX(9rem);
+  transition: transform 0.15s ease;
+  width: 9rem;
+  z-index: 3;
+
+  &-header {
+    align-items: center;
+    display: flex;
+    height: 4rem;
+    padding-right: 1rem;
+    justify-content: flex-end;
+  }
+
+  &-body {
+    padding: 0.25rem 0.75rem;
+
+    ul {
+      display: block;
+      flex-direction: column;
+      list-style: none;
+    }
+
+    li a {
+      border-radius: 6px;
+      color: $text;
+      display: block;
+      font-weight: 400;
+      margin: 0.25rem 0;
+      padding: 0.5rem 1rem;
+      text-decoration: none;
+    }
+    li a:hover,
+    li a:active {
+      background-color: $grey-light;
+      color: $black;
+    }
+
+    li .active {
+      background-color: $grey-light;
+
+      color: $black;
+      padding: 0.5rem 1rem;
+    }
+  }
+
+  @media (min-width: 48rem) {
+    display: none;
+  }
+}
+.mobile-nav.open {
+  transform: translateX(0);
+}
+
+.backdrop {
+  background: rgba(0, 0, 0, 0.16);
+  bottom: 0;
+  display: none;
+  left: 0;
+  position: fixed;
+  right: 0;
+  top: 0;
+  z-index: 2;
+}
+.backdrop.open {
+  display: block;
+}

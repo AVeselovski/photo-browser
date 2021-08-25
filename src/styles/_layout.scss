@@ -1,0 +1,77 @@
+.container {
+  margin: 0 auto;
+  max-width: 52rem;
+  min-height: calc(100vh - 8rem);
+  padding: 3.25rem 0.25rem 3rem;
+
+  @media (min-width: 48rem) {
+    padding: 1rem 1rem 4rem;
+  }
+}
+
+.img-container {
+  width: 100%;
+
+  img {
+    background-color: $grey-light;
+    display: block;
+    height: auto;
+    margin: 0 auto;
+    max-width: auto;
+  }
+}
+
+.content-header {
+  align-items: center;
+  background-color: $white;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+  display: flex;
+  height: 2.5rem;
+  justify-content: space-between;
+  left: 0;
+  padding: 0 0.5rem;
+  position: fixed;
+  right: 0;
+  top: 4rem;
+  z-index: 1;
+
+  .button {
+    color: $blue;
+  }
+  .button:hover:not(:disabled) {
+    background-color: rgba($blue, 0.1);
+  }
+  .button:first-of-type {
+    margin-right: 0.5rem;
+  }
+
+  @media (min-width: 48rem) {
+    border-bottom: 1px solid $grey-light;
+    box-shadow: none;
+    height: 3rem;
+    margin: 0.5rem 0;
+    padding: 0;
+    position: sticky;
+  }
+}
+
+.content {
+  padding-top: 0.5rem;
+}
+
+.description {
+  text-align: center;
+}
+
+.hello-card {
+  margin-bottom: 2rem;
+  text-align: center;
+
+  @media (min-width: 48rem) {
+    margin-bottom: 3rem;
+  }
+
+  .title {
+    margin-bottom: 0.5rem;
+  }
+}

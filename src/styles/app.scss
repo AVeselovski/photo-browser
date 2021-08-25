@@ -1,0 +1,20 @@
+@import "./config/normalize";
+@import "./config/variables";
+@import "./global";
+@import "./layout";
+
+@import "./components/header";
+@import "./components/mobile-nav";
+@import "./components/pagination";
+@import "./components/photo-grid";
+@import "./components/card-list";
+@import "./components/loading";
+
+// route/page specific styles
+
+// @import "./pages/photos";
+// @import "./pages/photo";
+// @import "./pages/albums";
+// @import "./pages/album";
+// @import "./pages/users";
+// @import "./pages/user";

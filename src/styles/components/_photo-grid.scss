@@ -1,0 +1,30 @@
+.photo-grid {
+  align-items: center;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  justify-content: center;
+  margin: 0 auto;
+
+  @media (min-width: 48rem) {
+    gap: 0.5rem;
+    max-width: calc(50rem - 3rem);
+  }
+
+  .photo-grid-item {
+    background-color: $grey-light;
+    border-radius: 6px;
+    height: 9rem;
+    width: 9rem;
+    overflow: hidden;
+
+    a,
+    img {
+      display: block;
+    }
+    a:hover img {
+      filter: brightness(1.085);
+      transform: scale(1.05);
+    }
+  }
+}

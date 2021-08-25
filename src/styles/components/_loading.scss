@@ -1,0 +1,22 @@
+@keyframes rotation {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(359deg);
+  }
+}
+
+.loading {
+  align-items: center;
+  color: $grey-light;
+  display: flex;
+  font-size: 3rem;
+  height: 24rem;
+  justify-content: center;
+  width: 100%;
+
+  span {
+    animation: rotation 2s infinite linear;
+  }
+}
