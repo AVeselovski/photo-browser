@@ -1,6 +1,8 @@
 import React, { Suspense, lazy } from "react";
 import { Redirect, Route, Switch } from "react-router-dom";
 
+import { navLinks } from "../utils/links";
+
 import { UiProvider } from "../context/UiContext";
 import Header from "./common/Header";
 import MobileNav from "./common/MobileNav";
@@ -23,8 +25,8 @@ const App = () => {
   return (
     <div>
       <UiProvider>
-        <Header />
-        <MobileNav />
+        <Header links={navLinks} />
+        <MobileNav links={navLinks} />
       </UiProvider>
       <main>
         <Suspense fallback={<Fallback />}>

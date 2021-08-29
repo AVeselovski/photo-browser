@@ -3,8 +3,20 @@ import { Link, NavLink } from "react-router-dom";
 
 import { useUi } from "../../context/UiContext";
 
-const Header = () => {
+const Header = ({ links = [] }) => {
   const { toggleNav } = useUi();
+
+  const renderNav = (links) => (
+    <ul>
+      {links.map((l, i) => (
+        <li key={`${l.name}-${i}`}>
+          <NavLink activeClassName="active" to={l.path}>
+            {l.name}
+          </NavLink>
+        </li>
+      ))}
+    </ul>
+  );
 
   return (
     <div className="header">
@@ -20,23 +32,7 @@ const Header = () => {
           <button className="header-nav-toggle" onClick={toggleNav}>
             &#9776;
           </button>
-          <ul>
-            <li>
-              <NavLink activeClassName="active" to="/photos">
-                All photos
-              </NavLink>
-            </li>
-            <li>
-              <NavLink activeClassName="active" to="/albums">
-                Albums
-              </NavLink>
-            </li>
-            <li>
-              <NavLink activeClassName="active" to="/users">
-                Users
-              </NavLink>
-            </li>
-          </ul>
+          {!!links.length && renderNav(links)}
         </nav>
       </div>
     </div>

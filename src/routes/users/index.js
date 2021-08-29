@@ -13,6 +13,7 @@ export default () => {
   const [users, setUsers] = useState([]);
   const [page, setPage] = useState(1);
   const [totalPages, setTotalPages] = useState(1);
+  const [error, setError] = useState("");
 
   const query = useQuery();
   const history = useHistory();
@@ -37,9 +38,10 @@ export default () => {
       setUsers(response?.data);
       setTotalPages(Math.ceil((response?.meta?.count || LIMIT) / LIMIT));
       setLoading(false);
+      setError("");
     } else {
       setLoading(false);
-      // show notification if there is time?
+      setError(response.error);
     }
   };
 
@@ -63,7 +65,7 @@ export default () => {
         />
       </div>
 
-      <div className="content">{loading ? <Loading /> : <UserList users={users} />}</div>
+      <div className="content">{loading ? <Loading /> : <UserList users={users} error={error} />}</div>
     </div>
   );
 };

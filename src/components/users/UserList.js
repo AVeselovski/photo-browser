@@ -1,9 +1,12 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-const UserList = ({ users = [] }) => {
+const UserList = ({ users = [], error = "" }) => {
   return (
     <div className="card-list">
+      {(!users.length || error) && (
+        <div className={`empty${error ? " error" : ""}`}>{error || "No users found..."}</div>
+      )}
       {users.map((u) => (
         <div className="card" key={u.id}>
           <Link to={`/users/${u.id}`}>

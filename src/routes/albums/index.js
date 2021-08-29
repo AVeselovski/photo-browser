@@ -13,6 +13,7 @@ export default () => {
   const [albums, setAlbums] = useState([]);
   const [page, setPage] = useState(1);
   const [totalPages, setTotalPages] = useState(1);
+  const [error, setError] = useState("");
 
   const query = useQuery();
   const history = useHistory();
@@ -37,9 +38,10 @@ export default () => {
       setAlbums(response?.data);
       setTotalPages(Math.ceil((response?.meta?.count || LIMIT) / LIMIT));
       setLoading(false);
+      setError("");
     } else {
       setLoading(false);
-      // show notification if there is time?
+      setError(response.error);
     }
   };
 
@@ -62,7 +64,7 @@ export default () => {
           changePage={_setPage}
         />
       </div>
-      <div className="content">{loading ? <Loading /> : <AlbumList albums={albums} />}</div>
+      <div className="content">{loading ? <Loading /> : <AlbumList albums={albums} error={error} />}</div>
     </div>
   );
 };

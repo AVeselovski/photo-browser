@@ -1,9 +1,12 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-const AlbumList = ({ albums = [] }) => {
+const AlbumList = ({ albums = [], error = "" }) => {
   return (
     <div className="card-list">
+      {(!albums.length || error) && (
+        <div className={`empty${error ? " error" : ""}`}>{error || "No albums found..."}</div>
+      )}
       {albums.map((a) => (
         <div className="card" key={a.id}>
           <Link to={`/albums/${a.id}`}>

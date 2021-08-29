@@ -63,13 +63,13 @@ index.js
 
 `routes` folder contains "container" components and is structured according to those route paths (kind of like NextJS does it). `components` folder has a `common` folder for general and reusable components. `components` also contains "_route-name_" folders for route specific components where/if necessary. I haven't really worked with React projects without a redux setup, so I was not sure about the appropriate scalable structure for context providers.
 
-With application scaling I would probably keep routes as "container" components (now "connected"), and only "drill" props 1 (max 2) children down, depending on use-case. Hooks now provide a convenient way to access the store where it's needed, without wrapping a bunch of components in HOCs. I would keep local data (that doesn't need to be global) local with React context (e.g. `UiProvider` for mobile navigation).
+With application scaling I would probably keep routes as "container" components (now "connected"), and only "drill" props 1 (max 2) children down, depending on use-case. Hooks now provide a convenient way to access the store where it's needed, so I would avoid unnecessary prop drilling. I'd also probably keep local data (that doesn't need to be global) local with React context (e.g. `UiProvider` for mobile navigation). Data fetching would move to side-effect middleware, e.g functions such as `_getPhotos` would call action creators and the fetching would be in "thunks" in case of `redux-thunk` (although I wouldn't decide on particular libraries at this point).
 
 ## Design
 
 I really like minimalistic UI of Vercel, so the UI design takes inspiration from iOS and vercel products (vercel.com / nextjs.org).
 
-Minimum viewport width for working layout is `320px`. App developed using Chrome, and was tested and deemed 100% functional on Safari (desktop) and Firefox. Other browsers were not tested.
+Minimum viewport width for working layout is `320px`. App developed using Chrome, and was tested and deemed 100% functional on Safari (desktop), Firefox, Microsoft Edge and Chrome on mobile. Other browsers were not tested.
 
 ## Notes (minor issues)
 

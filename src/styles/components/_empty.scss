@@ -1,0 +1,12 @@
+.empty {
+  align-items: center;
+  color: $grey;
+  display: flex;
+  font-size: 1.25rem;
+  height: 24rem;
+  justify-content: center;
+  width: 100%;
+}
+.empty.error {
+  color: $red;
+}

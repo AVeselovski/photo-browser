@@ -1,6 +1,6 @@
 .mobile-nav {
   background-color: $bg;
-  bottom: 0;
+  bottom: -100px;
   box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
   position: fixed;
   right: 0;
@@ -16,6 +16,10 @@
     height: 4rem;
     padding-right: 1rem;
     justify-content: flex-end;
+
+    button {
+      font-size: 1.25rem;
+    }
   }
 
   &-body {
@@ -60,7 +64,7 @@
 
 .backdrop {
   background: rgba(0, 0, 0, 0.16);
-  bottom: 0;
+  bottom: -100px;
   display: none;
   left: 0;
   position: fixed;
