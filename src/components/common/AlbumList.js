@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 
 const AlbumList = ({ albums = [], error = "" }) => {
   return (
-    <div className="card-list">
+    <div data-testid="card-list" className="card-list">
       {(!albums.length || error) && (
         <div className={`empty${error ? " error" : ""}`}>{error || "No albums found..."}</div>
       )}

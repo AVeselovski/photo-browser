@@ -1,6 +1,14 @@
 import React from "react";
 
-const Pagination = ({ page = 1, total = 1, previousPage = "", nextPage = "", changePage = () => {} }) => {
+const Pagination = ({
+  page = 1,
+  total = 1,
+  previousPage = "",
+  nextPage = "",
+  firstPage = "",
+  lastPage = "",
+  changePage = () => {}
+}) => {
   const prevDisabled = page == 1;
   const nextDisabled = page == total;
 
@@ -15,13 +23,37 @@ const Pagination = ({ page = 1, total = 1, previousPage = "", nextPage = "", cha
       <div className="pagination-page-count">
         {page} of {total}
       </div>
-      <button className="button" disabled={prevDisabled} onClick={() => _changePage(page - 1)}>
+      <button
+        className="button page-first"
+        disabled={prevDisabled}
+        title={firstPage || "First page"}
+        onClick={() => _changePage(1)}>
+        <span>&larr;&larr;</span>
+        {firstPage && ` ${firstPage}`}
+      </button>
+      <button
+        className="button"
+        disabled={prevDisabled}
+        title={previousPage || "Previous page"}
+        onClick={() => _changePage(page - 1)}>
         <span>&larr;</span>
         {previousPage && ` ${previousPage}`}
       </button>
-      <button className="button" disabled={nextDisabled} onClick={() => _changePage(page + 1)}>
+      <button
+        className="button"
+        disabled={nextDisabled}
+        title={nextPage || "Next page"}
+        onClick={() => _changePage(page + 1)}>
         {nextPage && `${nextPage} `}
         <span>&rarr;</span>
+      </button>
+      <button
+        className="button page-last"
+        disabled={nextDisabled}
+        title={lastPage || "Last page"}
+        onClick={() => _changePage(total)}>
+        {lastPage && `${lastPage} `}
+        <span>&rarr;&rarr;</span>
       </button>
     </div>
   );

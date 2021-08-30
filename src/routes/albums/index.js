@@ -53,7 +53,7 @@ export default () => {
   }, [page]);
 
   return (
-    <div className="container">
+    <div data-testid="albums-page" className="container">
       <div className="content-header">
         <div />
         <Pagination

@@ -41,9 +41,6 @@
   .button:hover:not(:disabled) {
     background-color: rgba($blue, 0.1);
   }
-  .button:first-of-type {
-    margin-right: 0.5rem;
-  }
 
   @media (min-width: 48rem) {
     border-bottom: 1px solid $grey-light;

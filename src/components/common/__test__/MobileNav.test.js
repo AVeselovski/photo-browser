@@ -24,30 +24,32 @@ const WrappedMobileNav = ({ history = null, ...props }) => {
   );
 };
 
-it("Should not have <ul> element without nav links", () => {
-  render(<WrappedMobileNav />);
+describe("MobileNav", () => {
+  it("Should not have <ul> element without nav links", () => {
+    render(<WrappedMobileNav />);
 
-  const list = screen.queryByRole("list");
-  expect(list).not.toBeInTheDocument();
+    const list = screen.queryByRole("list");
+    expect(list).not.toBeInTheDocument();
+  });
+
+  it("Should render provided nav links", () => {
+    render(<WrappedMobileNav links={navLinks} />);
+
+    const links = screen.getAllByRole("listitem");
+    expect(links).toHaveLength(2);
+    expect(links[0]).toContainElement(screen.getByText(/Test-1/i));
+  });
+
+  it("Should navigate via nav link and display active class", () => {
+    const history = createMemoryHistory();
+    render(<WrappedMobileNav history={history} links={navLinks} />);
+
+    const navLink = screen.getByRole("link", { name: /Test-2/i });
+    userEvent.click(navLink);
+
+    expect(history.location.pathname).toEqual("/test-2");
+    expect(navLink).toHaveClass("active");
+  });
+
+  // change navOpen state (?)
 });
-
-it("Should render provided nav links", () => {
-  render(<WrappedMobileNav links={navLinks} />);
-
-  const links = screen.getAllByRole("listitem");
-  expect(links).toHaveLength(2);
-  expect(links[0]).toContainElement(screen.getByText(/Test-1/i));
-});
-
-it("Should navigate via nav link and display active class", () => {
-  const history = createMemoryHistory();
-  render(<WrappedMobileNav history={history} links={navLinks} />);
-
-  const navLink = screen.getByRole("link", { name: /Test-2/i });
-  userEvent.click(navLink);
-
-  expect(history.location.pathname).toEqual("/test-2");
-  expect(navLink).toHaveClass("active");
-});
-
-// change navOpen state (?)

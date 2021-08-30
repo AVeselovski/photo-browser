@@ -24,38 +24,40 @@ const WrappedHeader = ({ history = null, ...props }) => {
   );
 };
 
-it("Should render and display default header (app title)", () => {
-  render(<WrappedHeader />);
+describe("Header", () => {
+  it("Should render and display default header (app title)", () => {
+    render(<WrappedHeader />);
 
-  const heading = screen.getByRole("heading", { name: /Photo/i });
+    const heading = screen.getByRole("heading", { name: /Photo/i });
 
-  expect(heading).toBeInTheDocument();
-});
+    expect(heading).toBeInTheDocument();
+  });
 
-it("Should not have <ul> element without nav links", () => {
-  render(<WrappedHeader />);
+  it("Should not have <ul> element without nav links", () => {
+    render(<WrappedHeader />);
 
-  const navList = screen.queryByRole("list");
+    const navList = screen.queryByRole("list");
 
-  expect(navList).not.toBeInTheDocument();
-});
+    expect(navList).not.toBeInTheDocument();
+  });
 
-it("Should render provided nav links", () => {
-  render(<WrappedHeader links={navLinks} />);
+  it("Should render provided nav links", () => {
+    render(<WrappedHeader links={navLinks} />);
 
-  const navListItems = screen.getAllByRole("listitem");
+    const navListItems = screen.getAllByRole("listitem");
 
-  expect(navListItems).toHaveLength(2);
-  expect(navListItems[0]).toContainElement(screen.getByText(/Test-1/i));
-});
+    expect(navListItems).toHaveLength(2);
+    expect(navListItems[0]).toContainElement(screen.getByText(/Test-1/i));
+  });
 
-it("Should navigate via nav link and display active class", () => {
-  const history = createMemoryHistory();
-  render(<WrappedHeader history={history} links={navLinks} />);
+  it("Should navigate via nav link and display active class", () => {
+    const history = createMemoryHistory();
+    render(<WrappedHeader history={history} links={navLinks} />);
 
-  const navLink = screen.getByRole("link", { name: /Test-2/i });
-  userEvent.click(navLink);
+    const navLink = screen.getByRole("link", { name: /Test-2/i });
+    userEvent.click(navLink);
 
-  expect(history.location.pathname).toEqual("/test-2");
-  expect(navLink).toHaveClass("active");
+    expect(history.location.pathname).toEqual("/test-2");
+    expect(navLink).toHaveClass("active");
+  });
 });

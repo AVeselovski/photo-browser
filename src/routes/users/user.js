@@ -10,6 +10,8 @@ export default () => {
   const [loading, setLoading] = useState(true);
   const [user, setUser] = useState(null);
   const [userAlbums, setUserAlbums] = useState([]);
+  const [error, setError] = useState("");
+
   const history = useHistory();
   const params = useParams();
 
@@ -28,7 +30,6 @@ export default () => {
       setLoading(false);
     } else {
       setLoading(false);
-      // show notification if there is time?
     }
   };
 
@@ -41,9 +42,10 @@ export default () => {
     if (!response.error) {
       setUserAlbums(response?.data);
       setLoading(false);
+      setError("");
     } else {
       setLoading(false);
-      // show notification if there is time?
+      setError(response.error);
     }
   };
 
@@ -73,7 +75,7 @@ export default () => {
               <p>Goes by: {user?.username}</p>
             </div>
             <div className="content">
-              <AlbumList albums={userAlbums} />
+              <AlbumList albums={userAlbums} error={error} />
             </div>
           </>
         )}

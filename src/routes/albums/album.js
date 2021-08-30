@@ -11,6 +11,7 @@ export default () => {
   const [album, setAlbum] = useState(null);
   const [albumPhotos, setAlbumPhotos] = useState([]);
   const [username, setUsername] = useState(null);
+  const [error, setError] = useState("");
 
   const history = useHistory();
   const params = useParams();
@@ -28,10 +29,11 @@ export default () => {
     if (!response.error) {
       setAlbum(response?.data);
       setLoading(false);
+      setError("");
       _getUser(response?.data?.userId);
     } else {
       setLoading(false);
-      // show notification if there is time?
+      setError(response.error);
     }
   };
 
@@ -88,7 +90,7 @@ export default () => {
               By: {!username ? "..." : <Link to={`/users/${album?.userId}`}>{username}</Link>}
             </div>
             <div className="content">
-              <PhotoGrid photos={albumPhotos} />
+              <PhotoGrid photos={albumPhotos} error={error} />
             </div>
           </>
         )}

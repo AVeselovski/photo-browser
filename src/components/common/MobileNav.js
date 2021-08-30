@@ -20,9 +20,11 @@ const MobileNav = ({ links = [] }) => {
 
   return (
     <>
-      <div data-testid="mobile-nav" className={`mobile-nav${mobileNavOpen ? " open" : ""}`}>
+      <div className={`mobile-nav${mobileNavOpen ? " open" : ""}`}>
         <div className="mobile-nav-header">
-          <button onClick={toggleNav}>&#x2715;</button>
+          <button data-testid="mobile-nav-toggle-close" onClick={toggleNav}>
+            &#x2715;
+          </button>
         </div>
         <div className="mobile-nav-body">{!!links.length && renderNav(links)}</div>
       </div>

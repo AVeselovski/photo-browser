@@ -7,7 +7,7 @@ const Header = ({ links = [] }) => {
   const { toggleNav } = useUi();
 
   const renderNav = (links) => (
-    <ul>
+    <ul data-testid="header-nav">
       {links.map((l, i) => (
         <li key={`${l.name}-${i}`}>
           <NavLink activeClassName="active" to={l.path}>
@@ -29,7 +29,7 @@ const Header = ({ links = [] }) => {
       </div>
       <div className="header-right">
         <nav className="header-nav">
-          <button className="header-nav-toggle" onClick={toggleNav}>
+          <button data-testid="mobile-nav-toggle-open" className="header-nav-toggle" onClick={toggleNav}>
             &#9776;
           </button>
           {!!links.length && renderNav(links)}
