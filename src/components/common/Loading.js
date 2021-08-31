@@ -2,7 +2,7 @@ import React from "react";
 
 const Loading = () => {
   return (
-    <div className="loading">
+    <div data-testid="loading" className="loading">
       <span className="loader-ring"></span>
     </div>
   );

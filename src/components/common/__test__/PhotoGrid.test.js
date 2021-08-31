@@ -6,7 +6,7 @@ import photos from "../../../test/fixtures/photos";
 
 import PhotoGrid from "../PhotoGrid";
 
-describe("PhotoGrid", () => {
+describe("PhotoGrid:", () => {
   it("Should render provided photos", () => {
     render(
       <Router>

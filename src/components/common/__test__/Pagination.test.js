@@ -4,7 +4,7 @@ import userEvent from "@testing-library/user-event";
 
 import Pagination from "../../../components/common/Pagination";
 
-describe("Pagination", () => {
+describe("Pagination:", () => {
   it("Should show default output", () => {
     render(<Pagination />);
 

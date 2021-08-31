@@ -24,7 +24,7 @@ const WrappedMobileNav = ({ history = null, ...props }) => {
   );
 };
 
-describe("MobileNav", () => {
+describe("MobileNav:", () => {
   it("Should not have <ul> element without nav links", () => {
     render(<WrappedMobileNav />);
 

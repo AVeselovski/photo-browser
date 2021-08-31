@@ -24,7 +24,7 @@ const WrappedHeader = ({ history = null, ...props }) => {
   );
 };
 
-describe("Header", () => {
+describe("Header:", () => {
   it("Should render and display default header (app title)", () => {
     render(<WrappedHeader />);
 

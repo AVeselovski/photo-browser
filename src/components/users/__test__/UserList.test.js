@@ -6,7 +6,7 @@ import users from "../../../test/fixtures/users";
 
 import UserList from "../UserList";
 
-describe("UserList", () => {
+describe("UserList:", () => {
   it("Should render provided users", () => {
     render(
       <Router>

@@ -6,7 +6,7 @@ import albums from "../../../test/fixtures/albums";
 
 import AlbumList from "../AlbumList";
 
-describe("AlbumList", () => {
+describe("AlbumList:", () => {
   it("Should render provided albums", () => {
     render(
       <Router>

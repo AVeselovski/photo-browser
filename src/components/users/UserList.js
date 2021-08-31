@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 
 const UserList = ({ users = [], error = "" }) => {
   return (
-    <div className="card-list">
+    <div data-testid="user-card-list" className="card-list">
       {(!users.length || error) && (
         <div className={`empty${error ? " error" : ""}`}>{error || "No users found..."}</div>
       )}

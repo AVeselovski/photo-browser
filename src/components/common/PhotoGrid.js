@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 
 const PhotoGrid = ({ photos = [], error = "" }) => {
   return (
-    <div className="photo-grid">
+    <div data-testid="photo-grid" className="photo-grid">
       {(!photos.length || error) && (
         <div className={`empty${error ? " error" : ""}`}>{error || "No photos found..."}</div>
       )}
