@@ -21,6 +21,12 @@ const Fallback = () => (
   </div>
 );
 
+const NotFound = () => (
+  <div className="container">
+    <div className="empty error">404 | Page not found</div>
+  </div>
+);
+
 const App = () => {
   return (
     <div>
@@ -38,6 +44,7 @@ const App = () => {
             <Route path="/albums/:id" component={AlbumPage} />
             <Route exact path="/users" component={UsersPage} />
             <Route path="/users/:id" component={UserPage} />
+            <Route path="*" component={NotFound} />
           </Switch>
         </Suspense>
       </main>
