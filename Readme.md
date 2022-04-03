@@ -1,5 +1,7 @@
 # PhotoBrowser
 
+**UPDATE: This was a small "take home"-assignment by a software company as part of a recruitment process. The demo project 100% fulfilled provided specifications and this readme sought to answers the questions that accompanied the assignment.**
+
 Live demo: [photo-browser](https://photo-browser-app.vercel.app)
 
 ## Running locally
@@ -70,7 +72,7 @@ index.html
 index.js
 ```
 
-`routes` folder contains "container" components and is structured according to those route paths (kind of like NextJS does it). `components` folder has a `common` folder for general and reusable components. `components` also contains "_route-name_" folders for route specific components where/if necessary. I haven't really worked with "Real" React projects without a `redux` setup, so I was not sure about the appropriate scalable structure for context providers and such. I would've referred redux for more serious stuff in any case, easier to test too.
+`routes` folder contains "container" components and is structured according to those route paths (kind of like NextJS does it). `components` folder has a `common` folder for general and reusable components. `components` also contains "_route-name_" folders for route specific components where/if necessary. I haven't really worked with "Real" React projects without a `redux` setup, so I was not sure about the appropriate scalable structure for context providers and such. I would've preferred redux for more serious stuff in any case, easier to test too.
 
 ## Scaling
 
@@ -83,9 +85,3 @@ Eslint setup would be a good addition. I would also consider TypeScript, which I
 I like minimalistic UI of Vercel, so the UI design takes heavy inspiration from vercel products (vercel.com / nextjs.org) and iOS to some degree.
 
 Minimum viewport width for working layout is `320px`. App developed using Chrome, and in addition to Chrome was tested and deemed 100% functional on Safari (desktop), Firefox, Microsoft Edge, Chrome mobile and "Samsung Internet". Other browsers were not tested.
-
-## Notes (minor issues)
-
-At some point I encountered this CORS issue: https://github.com/typicode/jsonplaceholder/issues/135. This seems to happen once in a while with `jsonplaceholder.typicode` based on open and closed issues. When that happens, the "try it" example on their website fails as well with the same issue. I added mock data (`mockData()`) to function as an alternative to continue development and in case this issue persists / repeats.
-
-Not a big issue, but perhaps noteworthy to be aware of for future cases.
